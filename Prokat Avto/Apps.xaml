@@ -1,0 +1,241 @@
+﻿<Application x:Class="WpfApp2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp2"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
+
+    <!--Обработчик для кнопки скрытия
+private void minimaze_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
+        }-->
+
+
+    <!--Обработчик для кнопки закрытие
+private void close_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }-->
+
+
+    <!--Обработчик для кнопки назад
+private void back_Click(object sender, RoutedEventArgs e)
+        {
+            if (frame1.CanGoBack)
+            {
+                frame1.GoBack();
+            }-->
+
+
+    <!--Обработчик для перехода назад
+private void back1_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Owner = this;
+            this.Hide();
+            mainWindow.Show();-->
+
+
+    <!--Textbox и Passwordbox для авторизации
+<StackPanel Grid.Row="2" Orientation="Vertical">
+    <TextBox CaretBrush="#ffff" KeyDown="tb1_KeyDown"  Grid.Row="2" Style="{DynamicResource Login}" x:Name="tb1" Width="280" Height="35" Padding="8 3 0 0" Foreground="#ffff" FontSize="20" Margin="0 20 0 0" VerticalAlignment="Top"/>
+    <TextBlock Grid.Row="2" IsHitTestVisible="False" FontSize="20" Text="Логин" Foreground="#ffff" Margin="45 -30 70 0" VerticalAlignment="Top">
+        <TextBlock.Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Visibility" Value="Collapsed"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                        <Setter Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TextBlock.Style>
+    </TextBlock>
+    <PasswordBox CaretBrush="#ffff" KeyDown="tb2_KeyDown"  Grid.Row="2" Style="{DynamicResource Password}" x:Name="tb2" Width="280" Height="35" Padding="8 3 0 0" Foreground="#ffff" FontSize="20" Margin="0 30 0 0"/>
+    <TextBlock Grid.Row="2" Name="Password" IsHitTestVisible="False" FontSize="20" Text="Пароль" Foreground="#ffff" Margin="45 -30 70 30" VerticalAlignment="Top"></TextBlock>
+</StackPanel>-->
+
+
+    <!--Обработчик для Passwordbox
+private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (tb2.Password.Length > 0)
+            {
+                Password.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Password.Visibility = Visibility.Visible;
+            }
+        }-->
+
+
+    <!--Метод для GetPhoto
+public string GetPhoto
+        {
+            get
+            {
+                if (image is null)
+                    return null;
+                return Directory.GetCurrentDirectory() + @"\Images\" + image.Trim();
+            }
+        }-->
+
+
+    <!--Обработчик для Model1
+public ВетКлиникаEntities()
+        : base("name=ВетКлиникаEntities")
+        {
+        }
+        public static ВетКлиникаEntities GetContext()
+        {
+            if (_context == null)
+                _context = new ВетКлиникаEntities();
+            return _context;
+        }-->
+
+
+    <!--Код lisbox
+<ListBox Name="doctor" Background="Transparent" BorderBrush="Transparent" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+    <ListBox.ItemContainerStyle>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="IsHitTestVisible" Value="False"/>
+        </Style>
+    </ListBox.ItemContainerStyle>
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <Border Height="90" Width="680" CornerRadius="20" HorizontalAlignment="Center" Margin="13 10 0 0" Background="#FFDE81" BorderBrush="#ffff" BorderThickness="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Height="80" Width="80" Background="Transparent" BorderBrush="White" BorderThickness="2" CornerRadius="10">
+                        <Image Source="{Binding Path=GetPhoto}"/>
+                    </Border>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Фамилия}" FontSize="20" Foreground="#FFFF" Margin="10"/>
+                        <TextBlock Text="{Binding Path=Имя}" FontSize="20" Foreground="#FFFF" Margin="0 10 10 10"/>
+                        <TextBlock Text="{Binding Path=Отчество}" FontSize="20" Foreground="#FFFF" Margin="0 10 10 10"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="Должность:" FontSize="18" Foreground="#FFFF" Margin="10 40 5 10"/>
+                        <TextBlock Text="{Binding Path=Должность}" FontSize="18" Foreground="#FFFF" Margin="0 40 10 10"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>-->
+
+
+    <!--Код для listview
+<ListView x:Name="listview1" Grid.Row="1" Background="Transparent"  BorderBrush="Transparent" d:ItemsSource="{d:SampleData ItemCount=15}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+    <ListView.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="680"></WrapPanel>
+        </ItemsPanelTemplate>
+    </ListView.ItemsPanel>
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <Button Style="{DynamicResource Button}" Height="160" Width="215" Margin="0 5"  Name="Терапия" FontSize="15" FontWeight="SemiBold" Click="Терапия_Click">
+                <StackPanel>
+                    <Image Height="90" Source="{Binding Path=GetPhoto}"/>
+                    <TextBlock Text="{Binding Path=Название}" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Margin="0 10 0 0"/>
+                </StackPanel>
+            </Button>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>-->
+
+
+    <!--Обработчик для подключение listbox и listview
+doctor.ItemsSource = ВетКлиникаEntities.GetContext().Доктора.OrderBy(p => p.Фамилия).ToList();-->
+
+
+    <!--Поиск, фильтрация и сортировка
+<WrapPanel Grid.Row="0">
+    <TextBox SelectionChanged="tb1_SelectionChanged" CaretBrush="#ffff" FontWeight="SemiBold" x:Name="tb1" Width="440" Height="35" Padding="11 2 0 0" FontSize="20" Margin="25 6" VerticalAlignment="Top"/>
+    <TextBlock IsHitTestVisible="False" FontSize="20" Text="Поиск" Foreground="#ffff" FontWeight="SemiBold" Margin="-450 10 0 0" >
+        <TextBlock.Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Visibility" Value="Collapsed"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                        <Setter Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TextBlock.Style>
+    </TextBlock>
+    <ComboBox x:Name="cmbmonth" Width="200" Height="35" Margin="5 6" FontSize="20" SelectionChanged="cmbmonth_SelectionChanged">
+        <ComboBoxItem Content="Все"/>
+        <ComboBoxItem Content="Май"/>
+        <ComboBoxItem Content="Июнь"/>
+        <ComboBoxItem Content="Июль"/>
+        <ComboBoxItem Content="Август"/>
+    </ComboBox>
+    <ComboBox x:Name="cmbmoney" Width="200" Height="35" Margin="5 0 0 0" FontSize="20" SelectionChanged="cmbmoney_SelectionChanged" Padding="5 0 0 0">
+        <ComboBoxItem Content="По возрастанию"/>
+        <ComboBoxItem Content="По убыванию"/>
+    </ComboBox>
+</WrapPanel>-->
+
+
+    <!--Обработчики для поиска, сортировки и фильтрации
+private void tb1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            UpdateData();
+        }
+private void cmbmonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateData();
+        }
+
+        private void cmbmoney_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateData();
+        }
+        private void UpdateData()
+        {
+            var currentYslugi = ВетКлиникаEntities.GetContext().Предоставление_услуг.OrderBy(p => p.Id_Услуги).ToList();
+            if (cmbmonth.SelectedIndex > 0)
+            {
+                string a = null;
+              
+                switch (cmbmonth.SelectedIndex)
+                {
+                    case 1:
+                        a = "Май";
+                        break;
+                    case 2:
+                        a = "Июнь";
+                        break;
+                    case 3:
+                        a = "Июль";
+                        break;
+                    case 4:
+                        a = "Август";
+                        break;
+                   
+                }
+                currentYslugi = currentYslugi.Where(p => p.Месяц == a).ToList();
+            }
+            
+            currentYslugi = currentYslugi.Where(p => p.Название.ToLower().Contains(tb1.Text.ToLower())).ToList();
+
+            if (cmbmoney.SelectedIndex >= 0)
+            {
+                if (cmbmoney.SelectedIndex == 0)
+                    currentYslugi = currentYslugi.OrderBy(p => p.Услуги.Стоимость).ToList();
+                if (cmbmoney.SelectedIndex == 1)
+                    currentYslugi = currentYslugi.OrderByDescending(p => p.Услуги.Стоимость).ToList();
+            }
+            Listboxzapis.ItemsSource = currentYslugi;
+        }-->
+   
